@@ -1,15 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Movie Recommendation System</title>
     <style>
         * {
-            margin :0;
+            margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
+
         body {
             display: flex;
             align-items: center;
@@ -19,6 +21,7 @@
             background-color: #f4f4f9;
             color: #333;
         }
+
         .container {
             max-width: 500px;
             width: 100%;
@@ -35,6 +38,7 @@
             font-size: 1.8em;
             margin-bottom: 20px;
         }
+
         label {
             font-weight: bold;
             color: #4a4a4a;
@@ -55,9 +59,11 @@
             font-size: 1em;
             outline: none;
         }
+
         input[type="text"]:focus {
             border-color: #3498db;
         }
+
         input[type="submit"] {
             padding: 10px 20px;
             font-size: 1em;
@@ -72,6 +78,7 @@
         input[type="submit"]:hover {
             background-color: #2980b9;
         }
+
         .movie-list {
             margin-top: 30px;
             text-align: center;
@@ -99,7 +106,8 @@
         }
     </style>
 </head>
-<body >
+
+<body>
     <div class="container">
         <h1>Movie Reommendation System</h1>
         <form method="POST" action="/recommend">
@@ -108,20 +116,34 @@
             <br><br>
             <input type="submit" value="Recommend">
         </form>
-    
+
         {% if movies %}
         <div class="movie-list"></div>
-            <h2>Recommended Movies:</h2>
-            <ul>
+        <h2>Recommended Movies:</h2>
+        <ul>
             {% for movie in movies %}
             <li>{{ movie }}</li>
             {% endfor %}
         </ul>
-        </div>
-        {% endif %}    
+    </div>
+    {% endif %}
+    {% if error %}
+    <p style="color: red;">{{ error }}</p>
+    {% endif %}
+
+    <!-- {% if movies %}
+    <h2>Recommended Movies:</h2>
+    <ul>
+        {% for movie in movies %}
+           <li>{{ movie }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %} -->
+
 
     </div>
-   
-    
+
+
 </body>
+
 </html>
